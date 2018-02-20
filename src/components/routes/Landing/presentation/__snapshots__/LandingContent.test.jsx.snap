@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="landingContentFull"
+>
+  <div
+    className="landing-page-platform-logo-component"
+  >
+    <div
+      className="row landing-top"
+    >
+      <div
+        className="columns landing-top-col medium-12 large-12 medium-centered large-centered"
+      >
+        <div
+          className="matrixLogo"
+        >
+          <img
+            alt="TMX Matrix"
+            src="tmx_matrix_logo.png"
+            title="TMX Matrix"
+          />
+        </div>
+        <p
+          className="landing-message"
+        >
+          Connecting Canada's Investment Community.
+        </p>
+        <button
+          className="button btn-trans-landing landing-top-join"
+          onClick={undefined}
+        >
+          <span
+            className="join-with-message-top"
+          >
+            Sign Up with Social
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="landing-section-two"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="columns medium-12 large-12 medium-centered large-centered"
+      >
+        <p
+          className="landing-section-two-bannermessage"
+        >
+          Why join the tmx matrix community?
+        </p>
+      </div>
+    </div>
+    <div
+      className="row landing-section-two-content"
+    >
+      <div
+        className="columns medium-4 large-4 medium-centered large-centered"
+      >
+        <img
+          alt="piggy bank"
+          className="piggybank"
+          src="piggy_bank.png"
+        />
+        <p
+          className="landing-section-two-text"
+        >
+          Uncover innovative 
+          <br />
+           investment opportunities.
+        </p>
+      </div>
+      <div
+        className="columns medium-4 large-4 medium-centered large-centered"
+      >
+        <img
+          alt="briefcase"
+          className="briefcase"
+          src="briefcase.png"
+        />
+        <p
+          className="landing-section-two-text"
+        >
+          Stay current with the 
+          <br />
+           companies you follow.
+        </p>
+      </div>
+      <div
+        className="columns medium-4 large-4 medium-centered large-centered"
+      >
+        <img
+          alt="hand shake"
+          className="handshake"
+          src="hand_shake.png"
+        />
+        <p
+          className="landing-section-two-text"
+        >
+          Directly link to 
+          <br />
+           company founders.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="landing-section-three"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="columns medium-12 large-12 medium-centered large-centered"
+      >
+        <p
+          className="landing-section-three-bannermessage"
+        >
+          TMX Matrix Connects you with your 
+          <br />
+          Peers - the Investing Elite of Canada.
+        </p>
+      </div>
+    </div>
+    <div
+      className="landing-section-three-subheading"
+    >
+      <p>
+        Our Partners
+      </p>
+    </div>
+    <div
+      className="row landing-section-partners"
+    >
+      <div
+        className="columns large-12"
+      >
+        <img
+          alt="onex"
+          className="onex"
+          src="ONEX.png"
+        />
+        <img
+          alt="mars"
+          className="mars"
+          src="mars.png"
+        />
+        <img
+          alt="omers"
+          className="omers"
+          src="omers.png"
+        />
+        <img
+          alt="vdc"
+          className="vdc"
+          src="VDC.png"
+        />
+        <img
+          alt="georgian partners"
+          className="georgianpartners"
+          src="georgian_partners.png"
+        />
+      </div>
+    </div>
+    <div
+      className="landing-section-three-subheading"
+    >
+      <p>
+        Driven by Data from
+      </p>
+    </div>
+    <div
+      className="row landing-section-driven"
+    >
+      <div
+        className="columns large-12"
+      >
+        <img
+          alt="crunch base"
+          className="crunchbase"
+          src="crunch_base.png"
+        />
+        <img
+          alt="capital cube"
+          className="capitalcube"
+          src="capital_cube.png"
+        />
+        <img
+          alt="mt newswires"
+          className="mtnewswires"
+          src="mt_newswires.png"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="landing-section-four"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="columns medium-12 large-12 medium-centered large-centered"
+      >
+        <p
+          className="landing-section-four-bannermessage"
+        >
+          Start Capitalizing on
+          <br />
+          your Matrix Today.
+        </p>
+      </div>
+    </div>
+    <button
+      className="button btn-black-landing landing-bottom-join"
+      onClick={undefined}
+    >
+      <span
+        className="join-with-message-bottom"
+      >
+        Sign Up with Social
+      </span>
+    </button>
+  </div>
+</div>
+`;
