@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { HeaderContent } from './HeaderContent'
+import { AppBarContent } from './AppBarContent'
 
-describe('HeaderContent component', () => {
+describe('AppBarContent component', () => {
   it('renders', () => {
     const history = {
       location: {
@@ -11,7 +11,7 @@ describe('HeaderContent component', () => {
     }
 
     const content = (
-      <HeaderContent history={history} />
+      <AppBarContent history={history} />
     )
 
     const wrapper = shallow(content)

@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { BrowserRouter } from 'react-router-dom'
-import HeaderContentLoggedIn from './HeaderContentLoggedIn'
+import AppBarLoggedIn from './AppBarLoggedIn'
 
 
 it('renders correctly', () => {
@@ -11,7 +11,7 @@ it('renders correctly', () => {
   }
   const componentTree = (
     <BrowserRouter>
-      <HeaderContentLoggedIn {...props} />
+      <AppBarLoggedIn {...props} />
     </BrowserRouter>
   )
   const wrapper = shallow(componentTree)

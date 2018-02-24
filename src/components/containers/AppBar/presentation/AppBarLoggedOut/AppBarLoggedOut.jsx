@@ -7,7 +7,7 @@ import IconButton from 'material-ui/IconButton'
 import NavigationMenuIcon from 'material-ui/svg-icons/navigation/menu'
 
 
-export default function HeaderContentLoggedOut(props) {
+export default function AppBarLoggedOut(props) {
   return (
     <AppBar
       title="Team Real Time"

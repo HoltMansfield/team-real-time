@@ -1,7 +1,7 @@
 import React from 'react'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-import SocialSchoolIcon from 'material-ui/svg-icons/social/school'
+import AvAvTimerIcon from 'material-ui/svg-icons/av/av-timer'
 
 
 export function LandingContent(props) {
@@ -9,8 +9,8 @@ export function LandingContent(props) {
     <div>
       <Card>
         <CardHeader
-          title="About Us"
-          avatar={<SocialSchoolIcon />}
+          title="Welcome to Team Real-Time"
+          avatar={<AvAvTimerIcon />}
         />
         <CardText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.

@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import HeaderContentLoggedIn from './HeaderContentLoggedIn/HeaderContentLoggedIn'
-import HeaderContentLoggedOut from './HeaderContentLoggedOut/HeaderContentLoggedOut'
+import AppBarLoggedIn from './AppBarLoggedIn/AppBarLoggedIn'
+import AppBarLoggedOut from './AppBarLoggedOut/AppBarLoggedOut'
 import LoggedInContent from '../../LoggedInContent/LoggedInContent'
 import LoggedOutContent from '../../LoggedOutContent/LoggedOutContent'
 
 
-export class HeaderContent extends Component {
+export class AppBarContent extends Component {
   render() {
     return (
       <div>
         <LoggedInContent>
-          <HeaderContentLoggedIn loggedInUser={this.props.loggedInUser} />
+          <AppBarLoggedIn loggedInUser={this.props.loggedInUser} />
         </LoggedInContent>
         <LoggedOutContent>
-          <HeaderContentLoggedOut
+          <AppBarLoggedOut
             login={this.props.login}
             handleSpaceKey={this.props.handleSpaceKey}
           />
@@ -24,4 +24,4 @@ export class HeaderContent extends Component {
   }
 }
 
-export default withRouter(HeaderContent)
+export default withRouter(AppBarContent)
