@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { Landing } from 'routes/Landing/Landing'
-import { NotFound } from 'routes/NotFound/NotFound'
+import NotFound from 'routes/NotFound/NotFound'
 
 
 class Routes extends Component {

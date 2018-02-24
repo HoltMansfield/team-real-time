@@ -5,24 +5,11 @@ import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
 import NavigationMenuIcon from 'material-ui/svg-icons/navigation/menu'
-import styled from 'styled-components'
+import { StyledLink } from 'styled/links'
 
 
 
 export default function AppBarLoggedOut(props) {
-  const StyledLink = styled(Link)`
-    :link {
-      text-decoration: none;
-      color: black;
-    }
-    :visited {
-      color: black;
-    }
-    :hover {
-      text-decoration: underline;
-    }
-  `
-
   return (
     <AppBar
       title="Team Real Time"
@@ -38,7 +25,11 @@ export default function AppBarLoggedOut(props) {
               Create account
             </StyledLink>
           </MenuItem>
-          <MenuItem primaryText="Login" />
+          <MenuItem>
+            <StyledLink to="/login">
+              Login
+            </StyledLink>
+          </MenuItem>
         </IconMenu>
       }
     />
