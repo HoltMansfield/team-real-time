@@ -5,16 +5,3 @@ export default function ShowWhen(props) {
 
   return null
 }
-/*
-
-  Example usage:
-
-  <ShowWhen condition={this.series.length === 0}>
-    // loading animation
-  </ShowWhen>
-
-  <ShowWhen condition={this.series.length > 0}>
-    // Acutal Content
-  </ShowWhen>
-
-*/

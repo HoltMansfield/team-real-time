@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import AppBarLoggedIn from './AppBarLoggedIn/AppBarLoggedIn'
 import AppBarLoggedOut from './AppBarLoggedOut/AppBarLoggedOut'
-import LoggedInContent from '../../LoggedInContent/LoggedInContent'
-import LoggedOutContent from '../../LoggedOutContent/LoggedOutContent'
+import LoggedInContent from 'containers/LoggedInContent/LoggedInContent'
+import LoggedOutContent from 'containers/LoggedOutContent/LoggedOutContent'
 
 
 export class AppBarContent extends Component {
