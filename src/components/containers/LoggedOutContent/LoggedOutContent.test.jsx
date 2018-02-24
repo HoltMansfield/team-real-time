@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { LoggedOutContent } from '../LoggedOutContent'
+import { LoggedOutContent } from './LoggedOutContent'
 
 
 describe('LoggedOutContent component', () => {

@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { FooterContent } from './FooterContent'
+import HeaderContentLoggedOut from './HeaderContentLoggedOut'
 
 
 it('renders correctly', () => {
-  const wrapper = shallow(<FooterContent />)
+  const wrapper = shallow(<HeaderContentLoggedOut />)
 
   expect(toJson(wrapper)).toMatchSnapshot()
 })

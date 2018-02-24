@@ -6,7 +6,7 @@ import { Footer } from '../containers/Footer/Footer'
 import Overlay from '../containers/Overlay/Overlay'
 
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import HeaderContentLoggedIn from './HeaderContentLoggedIn'
-import HeaderContentLoggedOut from './HeaderContentLoggedOut'
+import HeaderContentLoggedIn from './HeaderContentLoggedIn/HeaderContentLoggedIn'
+import HeaderContentLoggedOut from './HeaderContentLoggedOut/HeaderContentLoggedOut'
 import LoggedInContent from '../../LoggedInContent/LoggedInContent'
 import LoggedOutContent from '../../LoggedOutContent/LoggedOutContent'
 

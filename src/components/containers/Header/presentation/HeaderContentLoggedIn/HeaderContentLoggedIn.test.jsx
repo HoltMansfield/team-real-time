@@ -1,7 +1,9 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import { BrowserRouter } from 'react-router-dom'
-import HeaderContentLoggedIn from '../HeaderContentLoggedIn'
+import HeaderContentLoggedIn from './HeaderContentLoggedIn'
+
 
 it('renders correctly', () => {
   const props = {
@@ -12,9 +14,7 @@ it('renders correctly', () => {
       <HeaderContentLoggedIn {...props} />
     </BrowserRouter>
   )
+  const wrapper = shallow(componentTree)
 
-  const component = renderer
-    .create(componentTree)
-    .toJSON()
-  expect(component).toMatchSnapshot()
+  expect(toJson(wrapper)).toMatchSnapshot()
 })

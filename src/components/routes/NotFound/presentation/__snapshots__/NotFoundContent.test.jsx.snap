@@ -2,6 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  404 - this page is not found Do we have a design for this?
+  404 - this page is not found
 </div>
 `;

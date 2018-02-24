@@ -6,21 +6,6 @@ describe('HeaderContent component', () => {
   it('renders', () => {
     const history = {
       location: {
-        pathname: '/terms-and-conditions'
-      }
-    }
-
-    const content = (
-      <HeaderContent history={history} />
-    )
-
-    const wrapper = shallow(content)
-    expect(wrapper.type()).toEqual(null)
-  })
-
-  it('renders', () => {
-    const history = {
-      location: {
         pathname: '/'
       }
     }
