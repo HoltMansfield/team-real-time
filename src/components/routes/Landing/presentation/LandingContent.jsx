@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-import AvAvTimerIcon from 'material-ui/svg-icons/av/av-timer'
+import TimerIcon from 'material-ui/svg-icons/av/av-timer'
 
 
 export function LandingContent(props) {
@@ -9,7 +9,7 @@ export function LandingContent(props) {
     <Card containerStyle={{ paddingTop: '15px' }}>
       <CardHeader
         title="Welcome to Team Real-Time"
-        avatar={<AvAvTimerIcon />}
+        avatar={<TimerIcon />}
       />
       <CardText>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

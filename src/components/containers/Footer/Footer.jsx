@@ -9,7 +9,7 @@ export function Footer() {
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 65px;
+    height: 56px;
     width: 100%;
   `
 
