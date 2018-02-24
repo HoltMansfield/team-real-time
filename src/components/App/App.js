@@ -9,15 +9,15 @@ import Overlay from '../containers/Overlay/Overlay'
 export class App extends Component {
   render() {
     return (
-      <div>
-        <Notifications />
-        <Overlay />
-        <Header />
-        <Routes />
-        <Footer />
-      </div>
+        <div>
+          <Notifications />
+          <Overlay />
+          <Header />
+          <Routes />
+          <Footer />
+        </div>
     )
   }
 }
 
-export default App;
+export default App

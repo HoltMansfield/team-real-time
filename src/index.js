@@ -7,11 +7,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import createStore from './js/create-store'
 import setupFirebase from './js/setup-firebase'
 import App from './components/App/App'
-import registerServiceWorker from './registerServiceWorker'
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
+// Needed for onTouchTap http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin()
 
 const firebase = setupFirebase()
 const store = createStore(firebase)
@@ -31,6 +29,4 @@ const app =
 ReactDOM.render(
   app,
   rootElement,
-);
-
-registerServiceWorker()
+)
