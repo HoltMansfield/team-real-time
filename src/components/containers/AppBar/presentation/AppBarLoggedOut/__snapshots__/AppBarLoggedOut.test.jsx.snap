@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<AppBar
-  iconElementLeft={
+<Toolbar
+  noGutter={false}
+>
+  <ToolbarGroup
+    firstChild={false}
+    lastChild={false}
+  >
     <IconMenu
       anchorOrigin={
         Object {
@@ -73,14 +78,19 @@ exports[`renders correctly 1`] = `
         disabled={false}
         focusState="none"
         insetChildren={false}
-        primaryText="Create Account"
         targetOrigin={
           Object {
             "horizontal": "left",
             "vertical": "top",
           }
         }
-      />
+      >
+        <Styled(Link)
+          to="/create-account"
+        >
+          Create account
+        </Styled(Link)>
+      </MenuItem>
       <MenuItem
         anchorOrigin={
           Object {
@@ -93,18 +103,25 @@ exports[`renders correctly 1`] = `
         disabled={false}
         focusState="none"
         insetChildren={false}
-        primaryText="Login"
         targetOrigin={
           Object {
             "horizontal": "left",
             "vertical": "top",
           }
         }
-      />
+      >
+        <Styled(Link)
+          to="/login"
+        >
+          Login
+        </Styled(Link)>
+      </MenuItem>
     </IconMenu>
-  }
-  showMenuIconButton={true}
-  title="Team Real Time"
-  zDepth={1}
-/>
+    <Styled(ToolbarSeparator) />
+    <AvAvTimer />
+    <ToolbarTitle
+      text="Team Realtime"
+    />
+  </ToolbarGroup>
+</Toolbar>
 `;

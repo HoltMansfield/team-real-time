@@ -12,15 +12,15 @@ const firebaseConfig = {
     messagingSenderId: "821975896645"
 }
 
-
 const setup = () => {
-  // Initialize firebase instance
-  firebase.initializeApp(firebaseConfig)
-  // Initialize Cloud Firestore through Firebase
-  firebase.firestore()
+  if (!firebase.apps.length) {
+    // Initialize firebase instance
+    firebase.initializeApp(firebaseConfig)
+    // Initialize Cloud Firestore through Firebase
+    firebase.firestore()
+  }
 
   return firebase
 }
 
 export default setup
-export const firebaseAuth = firebase.auth
