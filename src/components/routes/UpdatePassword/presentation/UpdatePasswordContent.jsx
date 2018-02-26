@@ -3,21 +3,20 @@ import { withFormik } from 'formik'
 import Yup from 'yup'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-import AccountBoxIcon from 'material-ui/svg-icons/action/account-box'
+import LockIcon from 'material-ui/svg-icons/action/lock'
 import TextField from 'material-ui/TextField'
 import { CleanForm } from 'styled/forms'
 
 
 const formikConfig = {
   validationSchema: Yup.object().shape({
-    email: Yup.string().email().required('E-mail is required'),
     password: Yup.string().min(6).required('Password is required')
   }),
   validateOnChange: true,
-  mapPropsToValues: props => ({ email: '', password: '' })
+  mapPropsToValues: props => ({ password: '' })
 }
 
-export class CreateAccountContent extends Component {
+export class UpdatePasswordContent extends Component {
   constructor(props) {
     super(props)
     this.scrape = this.scrape.bind(this)
@@ -33,11 +32,7 @@ export class CreateAccountContent extends Component {
   }
 
   scrape() {
-    const newUser = {
-      email: this.props.values.email,
-      password: this.props.values.password
-    }
-    this.props.save(newUser)
+    this.props.updatePassword(this.props.values.password)
   }
 
   render() {
@@ -56,20 +51,11 @@ export class CreateAccountContent extends Component {
     return (
       <Card containerStyle={{ paddingTop: '15px' }}>
         <CardHeader
-          title="Create Account"
-          avatar={<AccountBoxIcon />}
+          title="Update Password"
+          avatar={<LockIcon />}
         />
         <CardText>
           <CleanForm onSubmit={this.scrape}>
-            <TextField
-              id="email"
-              floatingLabelText="email"
-              floatingLabelFixed={true}
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorText={this.getErrors('email')}
-            /><br />
             <TextField
               id="password"
               type="password"
@@ -83,7 +69,7 @@ export class CreateAccountContent extends Component {
           </CleanForm>
         </CardText>
         <CardActions>
-          <FlatButton label="Save" onClick={this.scrape} />
+          <FlatButton label="Login" onClick={this.scrape} />
           <FlatButton label="Cancel" onClick={this.props.goBack} />
         </CardActions>
       </Card>
@@ -91,4 +77,4 @@ export class CreateAccountContent extends Component {
   }
 }
 
-export default withFormik(formikConfig)(CreateAccountContent)
+export default withFormik(formikConfig)(UpdatePasswordContent)

@@ -2,31 +2,35 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
+import { notify } from 'react-notify-toast'
 import AppBarContent from './presentation/AppBarContent'
+import setupFirebase from '../../../js/setup-firebase'
 
 
 export class AppBar extends Component {
   constructor(props) {
     super(props)
-    this.login = this.login.bind(this)
-    this.handleSpaceKey = this.handleSpaceKey.bind(this)
+    this.signOut = this.signOut.bind(this)
+    this.firebase = setupFirebase()
   }
 
-  login() {
-
-  }
-
-  handleSpaceKey(e) {
-    if (e.keyCode === 32) {
-      this.login()
-    }
+  signOut() {
+    // NOT SURE IF ASYNC
+    const { setLoggedInUser, history } = this.props
+    this.firebase.auth().signOut()
+      .then((res) => {
+        setLoggedInUser(null)
+        history.push('/')
+      })
+      .catch((err) => {
+        notify.show(`${err.message}`, 'error', 5000)
+      })
   }
 
   render() {
     return (
       <AppBarContent
-        login={this.login}
-        handleSpaceKey={this.handleSpaceKey}
+        signOut={this.signOut}
         loggedInUser={this.props.loggedInUser}
       />
     )

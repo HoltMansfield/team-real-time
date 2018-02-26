@@ -3,7 +3,7 @@ import { withFormik } from 'formik'
 import Yup from 'yup'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-import AccountBoxIcon from 'material-ui/svg-icons/action/account-box'
+import AccountCircleIcon from 'material-ui/svg-icons/action/account-circle'
 import TextField from 'material-ui/TextField'
 import { CleanForm } from 'styled/forms'
 
@@ -17,7 +17,7 @@ const formikConfig = {
   mapPropsToValues: props => ({ email: '', password: '' })
 }
 
-export class CreateAccountContent extends Component {
+export class LoginContent extends Component {
   constructor(props) {
     super(props)
     this.scrape = this.scrape.bind(this)
@@ -33,11 +33,11 @@ export class CreateAccountContent extends Component {
   }
 
   scrape() {
-    const newUser = {
+    const userLoginAttempt = {
       email: this.props.values.email,
       password: this.props.values.password
     }
-    this.props.save(newUser)
+    this.props.login(userLoginAttempt)
   }
 
   render() {
@@ -56,8 +56,8 @@ export class CreateAccountContent extends Component {
     return (
       <Card containerStyle={{ paddingTop: '15px' }}>
         <CardHeader
-          title="Create Account"
-          avatar={<AccountBoxIcon />}
+          title="Login"
+          avatar={<AccountCircleIcon />}
         />
         <CardText>
           <CleanForm onSubmit={this.scrape}>
@@ -83,7 +83,7 @@ export class CreateAccountContent extends Component {
           </CleanForm>
         </CardText>
         <CardActions>
-          <FlatButton label="Save" onClick={this.scrape} />
+          <FlatButton label="Login" onClick={this.scrape} />
           <FlatButton label="Cancel" onClick={this.props.goBack} />
         </CardActions>
       </Card>
@@ -91,4 +91,4 @@ export class CreateAccountContent extends Component {
   }
 }
 
-export default withFormik(formikConfig)(CreateAccountContent)
+export default withFormik(formikConfig)(LoginContent)

@@ -5,25 +5,23 @@ import { notify } from 'react-notify-toast'
 import { connect } from 'react-redux'
 import { withFirebase } from 'react-redux-firebase'
 import * as actions from '../../../redux/actions'
-import CreateAccountContent from './presentation/CreateAccountContent'
 import setupFirebase from '../../../js/setup-firebase'
+import ResetPasswordContent from './presentation/ResetPasswordContent'
 
 
-// toDo: redirect logged in user
-export class CreateAccount extends Component {
+export class ResetPassword extends Component {
   constructor(props) {
     super(props)
-    this.save = this.save.bind(this)
+    this.reset = this.reset.bind(this)
     this.goBack = this.goBack.bind(this)
     this.firebase = setupFirebase()
   }
 
-  save(newUser) {
-    const { setLoggedInUser, history } = this.props
-    this.firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
+  reset(email) {
+    // NOT SURE IF ASYNC
+    this.firebase.auth().sendPasswordResetEmail(email)
       .then((res) => {
-        setLoggedInUser(res)
-        history.push('/dashboard')
+        // toDo: notify user success
       })
       .catch((err) => {
         notify.show(`${err.message}`, 'error', 5000)
@@ -36,7 +34,7 @@ export class CreateAccount extends Component {
 
   render() {
     return (
-      <CreateAccountContent save={this.save} cancel={this.goBack} />
+      <ResetPasswordContent reset={this.reset} cancel={this.goBack} />
     )
   }
 }
@@ -56,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(CreateAccount)
+)(ResetPassword)
