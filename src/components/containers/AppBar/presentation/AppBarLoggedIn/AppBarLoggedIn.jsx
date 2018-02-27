@@ -1,4 +1,5 @@
 import React from 'react'
+//import { Link } from 'react-router-dom'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
@@ -22,7 +23,7 @@ export default function AppBarLoggedIn(props) {
           anchorOrigin={{horizontal: 'left', vertical: 'top'}}
           targetOrigin={{horizontal: 'left', vertical: 'top'}}
         >
-          <MenuItem primaryText="Do password reset" />
+
           <MenuItem primaryText="Sign Out">
           </MenuItem>
         </IconMenu>
