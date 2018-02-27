@@ -19,12 +19,15 @@ export class CreateAccount extends Component {
   }
 
   save(newUser) {
+    const { setLoggedInUser, history } = this.props
     this.firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then((res) => {
-        console.log(res)
+        notify.show(`Account created for: ${newUser.email}`, 'success', 5000)
+        setLoggedInUser(res)
+        history.push('/dashboard')
       })
       .catch((err) => {
-        console.log(err)
+        notify.show(`${err.message}`, 'error', 5000)
       })
   }
 

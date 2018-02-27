@@ -10,7 +10,7 @@ export class App extends Component {
   render() {
     return (
         <div>
-          <Notifications />
+          <Notifications options={{zIndex: 5000}} />
           <Overlay />
           <Header />
           <Routes />
