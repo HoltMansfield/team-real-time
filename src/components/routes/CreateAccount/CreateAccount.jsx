@@ -32,7 +32,7 @@ export class CreateAccount extends Component {
   }
 
   goBack() {
-    this.history.goBack()
+    this.props.history.goBack()
   }
 
   render() {

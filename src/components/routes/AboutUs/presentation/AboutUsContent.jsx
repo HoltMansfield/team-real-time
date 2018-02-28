@@ -5,18 +5,15 @@ import TimerIcon from 'material-ui/svg-icons/av/av-timer'
 import { StyledLink } from 'styled/links'
 
 
-export function LandingContent(props) {
+export default function AboutUsContent(props) {
   return (
     <Card containerStyle={{ paddingTop: '15px' }}>
       <CardHeader
-        title="Welcome to Team Real-Time"
+        title="What is Team Real-Time?"
         avatar={<TimerIcon />}
       />
       <CardText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        Earl Grey tea, watercress sandwiches... and Bularian canapés? Are you up for promotion? The game's not big enough unless it scares you a little. Besides, you look good in a dress. The Enterprise computer system is controlled by three primary main processor cores, cross-linked with a redundant melacortz ramistat, fourteen kiloquad interface modules. My oath is between Captain Kargan and myself. Your only concern is with how you obey my orders. Or do you prefer the rank of prisoner to that of lieutenant? Computer, lights up!
       </CardText>
       <CardActions>
         <StyledLink to="/create-account"><FlatButton label="Create Account" /></StyledLink>

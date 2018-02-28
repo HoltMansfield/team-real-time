@@ -84,7 +84,7 @@ export class CreateAccountContent extends Component {
         </CardText>
         <CardActions>
           <FlatButton label="Save" onClick={this.scrape} />
-          <FlatButton label="Cancel" onClick={this.props.goBack} />
+          <FlatButton label="Cancel" onClick={this.props.cancel} />
         </CardActions>
       </Card>
     )

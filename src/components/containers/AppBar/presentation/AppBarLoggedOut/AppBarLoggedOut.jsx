@@ -22,7 +22,11 @@ export default function AppBarLoggedOut(props) {
           anchorOrigin={{horizontal: 'left', vertical: 'top'}}
           targetOrigin={{horizontal: 'left', vertical: 'top'}}
         >
-          <MenuItem primaryText="About us" />
+          <MenuItem>
+            <StyledLink to="/about-us">
+              About Us
+            </StyledLink>
+          </MenuItem>
           <MenuItem>
             <StyledLink to="/create-account">
               Create account
