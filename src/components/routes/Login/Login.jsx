@@ -5,7 +5,7 @@ import { notify } from 'react-notify-toast'
 import { connect } from 'react-redux'
 import { withFirebase } from 'react-redux-firebase'
 import * as actions from '../../../redux/actions'
-import CreateAccountContent from './presentation/CreateAccountContent'
+import LoginContent from './presentation/LoginContent'
 import setupFirebase from '../../../js/setup-firebase'
 
 
@@ -20,9 +20,9 @@ export class CreateAccount extends Component {
 
   save(newUser) {
     const { setLoggedInUser, history } = this.props
-    this.firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
+    this.firebase.auth().signInWithEmailAndPassword(newUser.email, newUser.password)
       .then((res) => {
-        notify.show(`Account created for: ${newUser.email}`, 'success', 5000)
+        notify.show(`Logged in as ${newUser.email}`, 'success', 700)
         history.push('/dashboard')
       })
       .catch((err) => {
@@ -36,7 +36,7 @@ export class CreateAccount extends Component {
 
   render() {
     return (
-      <CreateAccountContent save={this.save} cancel={this.goBack} />
+      <LoginContent save={this.save} cancel={this.goBack} />
     )
   }
 }

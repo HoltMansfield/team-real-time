@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
@@ -13,35 +14,31 @@ const SeperatorPaddedRight = styled(ToolbarSeparator)`
   margin-right: 30px;
 `
 
-export default function AppBarLoggedOut(props) {
-  return (
-    <Toolbar>
-      <ToolbarGroup>
-        <IconMenu
-          iconButtonElement={<IconButton><NavigationMenuIcon /></IconButton>}
-          anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-        >
-          <MenuItem>
-            <StyledLink to="/about-us">
-              About Us
-            </StyledLink>
-          </MenuItem>
-          <MenuItem>
-            <StyledLink to="/create-account">
-              Create account
-            </StyledLink>
-          </MenuItem>
-          <MenuItem>
-            <StyledLink to="/login">
-              Login
-            </StyledLink>
-          </MenuItem>
-        </IconMenu>
-        <SeperatorPaddedRight />
-        <TimerIcon />
-        <ToolbarTitle text="Team Realtime" />
-      </ToolbarGroup>
-    </Toolbar>
-  )
+export class AppBarLoggedOut extends Component {
+  navigate(route) {
+    this.props.history.push(`/${route}`)
+  }
+
+  render() {
+    return (
+      <Toolbar>
+        <ToolbarGroup>
+          <IconMenu
+            iconButtonElement={<IconButton><NavigationMenuIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          >
+            <MenuItem primaryText="About Us" onClick={() => this.navigate('about-us')} />
+            <MenuItem primaryText="Create Account" onClick={() => this.navigate('create-account')} />
+            <MenuItem primaryText="Login" onClick={() => this.navigate('login')} />
+          </IconMenu>
+          <SeperatorPaddedRight />
+          <TimerIcon />
+          <ToolbarTitle text="Team Realtime" />
+        </ToolbarGroup>
+      </Toolbar>
+    )
+  }
 }
+
+export default withRouter(AppBarLoggedOut)

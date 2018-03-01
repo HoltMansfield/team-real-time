@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { notify } from 'react-notify-toast'
+import { withRouter } from 'react-router-dom'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
 import NavigationMenuIcon from 'material-ui/svg-icons/navigation/menu'
+import AccountIcon from 'material-ui/svg-icons/action/account-circle'
 import TimerIcon from 'material-ui/svg-icons/av/av-timer'
 import styled from 'styled-components'
 import { StyledLink } from 'styled/links'
 import setupFirebase from '../../../../../js/setup-firebase'
+import DesktopOnly from 'containers/DesktopOnly/DesktopOnly'
 
 
 const SeperatorPaddedRight = styled(ToolbarSeparator)`
@@ -24,10 +27,10 @@ export class AppBarLoggedOut extends Component {
 
   signOut() {
     // NOT SURE IF ASYNC
-    const { setLoggedInUser, history } = this.props
+    const { history } = this.props
+
     this.firebase.auth().signOut()
       .then((res) => {
-        setLoggedInUser(null)
         history.push('/')
       })
       .catch((err) => {
@@ -35,7 +38,13 @@ export class AppBarLoggedOut extends Component {
       })
   }
 
+  navigate(route) {
+    this.props.history.push(`/${route}`)
+  }
+
   render() {
+    const { loggedInUser } = this.props
+
     return (
       <Toolbar>
         <ToolbarGroup>
@@ -44,21 +53,28 @@ export class AppBarLoggedOut extends Component {
             anchorOrigin={{horizontal: 'left', vertical: 'top'}}
             targetOrigin={{horizontal: 'left', vertical: 'top'}}
           >
-            <MenuItem primaryText="About us" />
-            <MenuItem primaryText="Signout" onClick={this.signOut} />
-            <MenuItem>
-              <StyledLink to="/login">
-                Login
-              </StyledLink>
-            </MenuItem>
+            <MenuItem primaryText="About us" onClick={() => this.navigate('about-us')} />
           </IconMenu>
           <SeperatorPaddedRight />
           <TimerIcon />
           <ToolbarTitle text="Team Realtime" />
+        </ToolbarGroup>
+        <ToolbarGroup>
+          <DesktopOnly>
+            <span>{loggedInUser.email}</span>
+          </DesktopOnly>
+          <IconMenu
+            iconButtonElement={<IconButton><AccountIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          >
+            <MenuItem primaryText="User Profile" onClick={() => this.navigate('profile')} />
+            <MenuItem primaryText="Signout" onClick={this.signOut} />
+          </IconMenu>
         </ToolbarGroup>
       </Toolbar>
     )
   }
 }
 
-export default AppBarLoggedOut
+export default withRouter(AppBarLoggedOut)
