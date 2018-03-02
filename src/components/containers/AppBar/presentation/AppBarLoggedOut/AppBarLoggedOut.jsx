@@ -31,6 +31,7 @@ export class AppBarLoggedOut extends Component {
             <MenuItem primaryText="About Us" onClick={() => this.navigate('about-us')} />
             <MenuItem primaryText="Create Account" onClick={() => this.navigate('create-account')} />
             <MenuItem primaryText="Login" onClick={() => this.navigate('login')} />
+            <MenuItem primaryText="Forgot Password" onClick={() => this.navigate('forgot-password')} />
           </IconMenu>
           <SeperatorPaddedRight />
           <TimerIcon />

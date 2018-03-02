@@ -3,20 +3,21 @@ import { withFormik } from 'formik'
 import Yup from 'yup'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-import LockIcon from 'material-ui/svg-icons/action/lock'
+import AccountBoxIcon from 'material-ui/svg-icons/action/account-box'
 import TextField from 'material-ui/TextField'
 import { CleanForm } from 'styled/forms'
 
 
 const formikConfig = {
   validationSchema: Yup.object().shape({
-    password: Yup.string().min(6).required('Password is required')
+    email: Yup.string().email().required('E-mail is required'),
+    password: Yup.string().required('Password is required')
   }),
   validateOnChange: true,
-  mapPropsToValues: props => ({ password: '' })
+  mapPropsToValues: props => ({ email: '' })
 }
 
-export class UpdatePasswordContent extends Component {
+export class ForgotPasswordContent extends Component {
   constructor(props) {
     super(props)
     this.scrape = this.scrape.bind(this)
@@ -32,7 +33,7 @@ export class UpdatePasswordContent extends Component {
   }
 
   scrape() {
-    this.props.updatePassword(this.props.values.password)
+    this.props.save(this.props.values.email)
   }
 
   render() {
@@ -51,30 +52,29 @@ export class UpdatePasswordContent extends Component {
     return (
       <Card containerStyle={{ paddingTop: '15px' }}>
         <CardHeader
-          title="Update Password"
-          avatar={<LockIcon />}
+          title="Send Reset Password Code"
+          avatar={<AccountBoxIcon />}
         />
         <CardText>
           <CleanForm onSubmit={this.scrape}>
             <TextField
-              id="password"
-              type="password"
-              floatingLabelText="password"
+              id="email"
+              floatingLabelText="email"
               floatingLabelFixed={true}
-              value={values.password}
+              value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              errorText={this.getErrors('password')}
+              errorText={this.getErrors('email')}
             /><br />
           </CleanForm>
         </CardText>
         <CardActions>
-          <FlatButton label="Update Password" onClick={this.scrape} />
-          <FlatButton label="Cancel" onClick={this.props.goBack} />
+          <FlatButton label="Reset Password" onClick={this.scrape} />
+          <FlatButton label="Cancel" onClick={this.props.cancel} />
         </CardActions>
       </Card>
     )
   }
 }
 
-export default withFormik(formikConfig)(UpdatePasswordContent)
+export default withFormik(formikConfig)(ForgotPasswordContent)

@@ -18,10 +18,12 @@ export class updatePassword extends Component {
   }
 
   updatePassword(password) {
-    // NOT SURE IF ASYNC
+    const { loggedInUser, history } = this.props
+
     this.firebase.auth().currentUser.updatePassword(password)
       .then((res) => {
-        // toDo: notify user success
+        notify.show(`Password updated for: ${loggedInUser.email}`, 'success', 5000)
+        history.push('/dashboard')
       })
       .catch((err) => {
         notify.show(`${err.message}`, 'error', 5000)

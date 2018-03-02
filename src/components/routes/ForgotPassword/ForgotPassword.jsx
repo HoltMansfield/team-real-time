@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { compose } from 'recompose'
 import { withRouter } from 'react-router-dom'
 import { notify } from 'react-notify-toast'
 import { withFirebase } from 'react-redux-firebase'
-import CreateAccountContent from './presentation/CreateAccountContent'
+import ForgotPasswordContent from './presentation/ForgotPasswordContent'
 import setupFirebase from '../../../js/setup-firebase'
 
 
-export class CreateAccount extends Component {
+export class ForgotPassword extends Component {
   constructor(props) {
     super(props)
     this.save = this.save.bind(this)
@@ -14,14 +15,12 @@ export class CreateAccount extends Component {
     this.firebase = setupFirebase()
   }
 
-  save(newUser) {
+  save(email) {
     const { history } = this.props
-
-    this.firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(newUser.email, newUser.password)
-    //this.firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
+    const x = this.firebase.auth()
+    this.firebase.auth().sendPasswordResetEmail(email)
       .then((res) => {
-        notify.show(`Account created for: ${newUser.email}`, 'success', 5000)
-        history.push('/dashboard')
+        notify.show(`Reset password code sent to ${email}`, 'success', 5000)
       })
       .catch((err) => {
         notify.show(`${err.message}`, 'error', 5000)
@@ -34,9 +33,9 @@ export class CreateAccount extends Component {
 
   render() {
     return (
-      <CreateAccountContent save={this.save} cancel={this.goBack} />
+      <ForgotPasswordContent save={this.save} cancel={this.goBack} />
     )
   }
 }
 
-export default withRouter(CreateAccount)
+export default withRouter(ForgotPassword)

@@ -5,7 +5,11 @@ import { App } from './App'
 
 describe('App component', () => {
   it('renders', () => {
-    const wrapper = shallow(<App />)
+    const props = {
+      setLoggedInUser: () => {}
+    }
+
+    const wrapper = shallow(<App {...props} />)
 
     expect(wrapper).toBeDefined()
   })

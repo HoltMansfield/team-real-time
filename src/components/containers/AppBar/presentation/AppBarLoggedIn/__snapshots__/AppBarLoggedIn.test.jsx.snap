@@ -23,7 +23,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <AppBarLoggedIn
+  <withRouter(AppBarLoggedOut)
     loggedInUser={Object {}}
   />
 </Router>

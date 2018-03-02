@@ -69,6 +69,7 @@ export class AppBarLoggedOut extends Component {
             targetOrigin={{horizontal: 'left', vertical: 'top'}}
           >
             <MenuItem primaryText="User Profile" onClick={() => this.navigate('profile')} />
+            <MenuItem primaryText="Update Password" onClick={() => this.navigate('update-password')} />
             <MenuItem primaryText="Signout" onClick={this.signOut} />
           </IconMenu>
         </ToolbarGroup>
