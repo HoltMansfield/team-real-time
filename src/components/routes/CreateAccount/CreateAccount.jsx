@@ -18,7 +18,6 @@ export class CreateAccount extends Component {
     const { history } = this.props
 
     this.firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(newUser.email, newUser.password)
-    //this.firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then((res) => {
         notify.show(`Account created for: ${newUser.email}`, 'success', 5000)
         history.push('/dashboard')
