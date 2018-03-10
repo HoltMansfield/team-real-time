@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { compose } from 'recompose'
+import { compose,  withContext, getContext } from 'recompose'
 import { connect } from 'react-redux'
 import { notify } from 'react-notify-toast'
 import { withFirebase } from 'react-redux-firebase'
+import PropTypes from 'prop-types'
 import CreateAccountContent from './presentation/CreateAccountContent'
 import setupFirebase from '../../../js/setup-firebase'
 
@@ -53,7 +54,13 @@ const mapStateToProps = (state) => {
   }
 }
 
+const withStore = compose(
+  withContext({ store: PropTypes.object }, () => {}),
+  getContext({ store: PropTypes.object }),
+)
+
 export default compose(
   connect(mapStateToProps, () => ({})),
-  withRouter
+  withRouter,
+  withStore,
 )(CreateAccount)
