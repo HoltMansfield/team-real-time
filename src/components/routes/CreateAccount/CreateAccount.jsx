@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { compose } from 'recompose'
+import { connect } from 'react-redux'
 import { notify } from 'react-notify-toast'
 import { withFirebase } from 'react-redux-firebase'
 import CreateAccountContent from './presentation/CreateAccountContent'
@@ -14,11 +16,18 @@ export class CreateAccount extends Component {
     this.firebase = setupFirebase()
   }
 
+  createUserProfile(res, firestore) {
+    return firestore.add('userProfile', {
+      firebaseId: res.user.uid
+    })
+  }
+
   save(newUser) {
-    const { history } = this.props
+    const { history, firestore } = this.props
 
     this.firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(newUser.email, newUser.password)
-      .then((res) => {
+      .then((res) => this.createUserProfile(res, firestore))
+      .then(() => {
         notify.show(`Account created for: ${newUser.email}`, 'success', 5000)
         history.push('/dashboard')
       })
@@ -38,4 +47,13 @@ export class CreateAccount extends Component {
   }
 }
 
-export default withRouter(CreateAccount)
+const mapStateToProps = (state) => {
+  return {
+    firestore: state.firestore
+  }
+}
+
+export default compose(
+  connect(mapStateToProps, () => ({})),
+  withRouter
+)(CreateAccount)
